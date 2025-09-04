@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(31, 66, 31);
+    background-color: rgb(31, 66, 31);
 }
 
 .card {
@@ -10,11 +10,19 @@ body {
     background-color: white;
     text-align: center;
     .red {
-      color: red;
+        color: red;
     }
     .black {
-      color: black;
+        color: black;
     }
+}
+.card.closed {
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background: linear-gradient(135deg, #444cf755 25%, transparent 25%) -10px 0/ 20px 20px,
+        linear-gradient(225deg, #444cf7 25%, transparent 25%) -10px 0/ 20px 20px,
+        linear-gradient(315deg, #444cf755 25%, transparent 25%) 0px 0/ 20px 20px,
+        linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%) 0px 0/ 20px 20px;
 }
 
 .card .rank {
@@ -28,4 +36,3 @@ body {
     font-size: 50px;
     margin: 0px;
 }
-

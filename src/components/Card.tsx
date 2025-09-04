@@ -13,14 +13,14 @@ export default function Card({ open, rank, suit }: CardProps) {
     }
 
     return (
-        <div className="card">
+        <div className={"card" + (open ? "" : " closed")}>
             {open ? (
                 <div className={isBlackSuit ? "black" : "red"}>
                     <p className="rank">{rank}</p>
                     <p className="suit">{suit}</p>
                 </div>
             ) : (
-                <p>closed</p>
+                <></>
             )}
         </div>
     );
