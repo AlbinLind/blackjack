@@ -23,3 +23,8 @@ export enum Rank {
     king = "K",
     ace = "A",
 }
+
+export interface Card {
+    suit: Suit;
+    rank: Rank;
+}
