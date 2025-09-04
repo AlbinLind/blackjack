@@ -12,7 +12,6 @@ export default function Card({ open, rank, suit }: CardProps) {
         isBlackSuit = true;
     }
 
-
     return (
         <div className="card">
             {open ? (
