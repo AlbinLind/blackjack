@@ -5,7 +5,6 @@ interface CardProps {
     rank: Rank;
     suit: Suit;
     position: "dealer" | "deck" | "player";
-    index: number;
 }
 
 export default function Card({ open, rank, suit}: CardProps) {
