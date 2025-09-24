@@ -7,7 +7,7 @@ interface ActionButtonProp {
 export default function ActionButton({ name, isClickable, onClick }: ActionButtonProp) {
     return (
         <div className="action-button-container">
-            <button className="action-button" disabled={isClickable} onClick={onClick}>
+            <button className="action-button" disabled={!isClickable} onClick={onClick}>
                 {name}
             </button>
         </div>

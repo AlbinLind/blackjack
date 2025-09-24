@@ -1,19 +1,15 @@
-import type { Card } from "../enums";
-
 interface ScoreTitleProps {
     playerName: string;
-    cards: Card[];
+    score: number;
 }
 
-export default function ScoreTitle({playerName, cards}: ScoreTitleProps) {
-    const score = calculateScore(cards);
-    return <div className="score-container"><p>{playerName} ({score})</p></div>
-
-} 
-
-function calculateScore(cards: Card[]): number {
-    if (cards) {
-        return 1.0
-    }
-    return 0.0
+export default function ScoreTitle({ playerName, score }: ScoreTitleProps) {
+    const isBust = score > 21;
+    return (
+        <div className="score-container">
+            <p style={isBust ? { color: "red" } : {}}>
+                {playerName} {isBust ? "is bust" : ""} ({score})
+            </p>
+        </div>
+    );
 }
