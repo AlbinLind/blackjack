@@ -4,7 +4,7 @@ import { GameBoard } from "./components/GameBoard";
 import { type Card, Rank, Suit } from "./enums";
 
 function App() {
-    const [cardsInDeck, setCardsInDeck] = useState<Card[]>(getShuffledDeck());
+    const [cardsInDeck, setCardsInDeck] = useState<Card[]>(getShuffledDeck(3));
     const [playerCards, setPlayerCards] = useState<Card[]>([]);
     const [playerScore, setPlayerScore] = useState(0);
     const [dealerCards, setDealerCards] = useState<Card[]>([]);
@@ -161,7 +161,7 @@ function dealCards(availableCards: Card[], numberOfCards: number): { dealtCards:
     return { dealtCards, remainingCards };
 }
 
-function getShuffledDeck(): Card[] {
+function getShuffledDeck(nDecks: number): Card[] {
     const deck: Card[] = [];
     const suits = [Suit.club, Suit.diamond, Suit.heart, Suit.spade];
     const ranks = [
@@ -180,11 +180,13 @@ function getShuffledDeck(): Card[] {
         Rank.king,
     ];
 
-    suits.forEach((suit) => {
-        ranks.forEach((rank) => {
-            deck.push({ suit, rank });
+    for (let i = 0; i < nDecks; i++) {
+        suits.forEach((suit) => {
+            ranks.forEach((rank) => {
+                deck.push({ suit, rank });
+            });
         });
-    });
+    }
 
     return deck.sort(() => Math.random() - 0.5);
 }
