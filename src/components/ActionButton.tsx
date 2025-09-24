@@ -2,15 +2,11 @@ interface ActionButtonProp {
     name: string;
     isClickable: boolean;
     onClick: () => void;
-    position: {
-        left: number;
-        top: number;
-    }
 }
 
-export default function ActionButton({ name, isClickable, onClick, position}: ActionButtonProp) {
+export default function ActionButton({ name, isClickable, onClick }: ActionButtonProp) {
     return (
-        <div className="action-button-container" style={position}>
+        <div className="action-button-container">
             <button className="action-button" disabled={isClickable} onClick={onClick}>
                 {name}
             </button>

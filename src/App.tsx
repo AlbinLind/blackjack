@@ -11,18 +11,34 @@ function onStandClick() {}
 function App() {
     return (
         <>
-            <ScoreTitle playerName="Dealer" cards={[]} />
-            <ScoreTitle playerName="Player" cards={[]} />
-            <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={0} />
-            <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={1} />
-            <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={2} />
-            <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={3} />
-            <Card open={true} rank={Rank.jack} suit={Suit.spade} position="player" index={0} />
-            <Card open={true} rank={Rank.five} suit={Suit.diamond} position="player" index={1} />
-            <Card open={true} rank={Rank.two} suit={Suit.club} position="dealer" index={0} />
-            <Card open={false} rank={Rank.two} suit={Suit.club} position="dealer" index={1} />
-            <ActionButton name="Hit" isClickable={true} onClick={onHitClick} position={{ left: 200, top: 500 }} />
-            <ActionButton name="Stand" isClickable={true} onClick={onStandClick} position={{ left: 300, top: 500 }} />
+            <div className="board">
+                <div className="deck">
+                    <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={0} />
+                    <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={1} />
+                    <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={2} />
+                    <Card open={false} rank={Rank.ace} suit={Suit.heart} position="deck" index={3} />
+                </div>
+                <div className="dealer">
+                    <div className="player">
+                        <ScoreTitle playerName="Dealer" cards={[]} />
+                        <div className="cards">
+                            <Card open={true} rank={Rank.two} suit={Suit.club} position="dealer" index={0} />
+                            <Card open={false} rank={Rank.two} suit={Suit.club} position="dealer" index={1} />
+                        </div>
+                    </div>
+                </div>
+                <div className="player">
+                    <ScoreTitle playerName="Player" cards={[]} />
+                    <div className="cards">
+                        <Card open={true} rank={Rank.jack} suit={Suit.spade} position="player" index={0} />
+                        <Card open={true} rank={Rank.five} suit={Suit.diamond} position="player" index={1} />
+                    </div>
+                </div>
+                <div className="actions">
+                    <ActionButton name="Hit" isClickable={true} onClick={onHitClick} />
+                    <ActionButton name="Stand" isClickable={true} onClick={onStandClick} />
+                </div>
+            </div>
         </>
     );
 }

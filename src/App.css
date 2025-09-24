@@ -3,7 +3,6 @@ body {
 }
 
 .card {
-    position: absolute;
     width: 100px;
     height: 140px;
     border-radius: 5px;
@@ -49,15 +48,53 @@ body {
     cursor: pointer;
 }
 
-.action-button-container {
-    position: absolute;
-}
-
 .score-container {
     p {
         color: white;
         font-size: 25px;
         font-weight: bold;
         margin: 0px;
+    }
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+}
+
+.deck {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    /* Each card in the deck should be displayed as a stacked card, slightly offset from the last one */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .card {
+        margin-left: -100px;
+        z-index: 1;
     }
 }
